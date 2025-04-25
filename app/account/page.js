@@ -1,12 +1,7 @@
 import Link from "next/link";
 
 function page() {
-  return (
-    <div>
-      account page
-      <Link href="/account/profile">profile </Link>
-    </div>
-  );
+  return <div>Home</div>;
 }
 
 export default page;

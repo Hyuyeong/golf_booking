@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import LogoImage from "@/public/logo.png";
+import LogoImage from "@/public/logo-r.png";
 
 function Logo() {
   return (

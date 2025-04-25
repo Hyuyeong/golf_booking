@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Spinner from "../_components/Spinner";
 import { query } from "../_lib/db";
+import Link from "next/link";
 async function Boothlist() {
   //   const [booths, setBooths] = useState([]);
   //   const [loading, setLoading] = useState(true);
@@ -16,6 +17,8 @@ async function Boothlist() {
   //         setLoading(false);
   //       });
   //   }, []);
+
+  //   console.log(booths);
 
   //   if (loading) return <Spinner />;
 
@@ -35,12 +38,15 @@ async function Boothlist() {
           <th className="px-6 py-3 text-left text-sm font-bold uppercase">
             Description
           </th>
+          <th className="px-6 py-3 text-left text-sm font-bold uppercase">
+            Booking
+          </th>
         </tr>
       </thead>
       <tbody>
         {booths.map((booth, index) => (
           <tr
-            key={booth.id}
+            key={booth.Id}
             className="bg-white shadow-sm hover:shadow-md transition-shadow duration-300 rounded-xl"
           >
             <td className="px-6 py-4 font-medium text-gray-600">{index + 1}</td>
@@ -58,6 +64,13 @@ async function Boothlist() {
               {booth.Name}
             </td>
             <td className="px-6 py-4 text-gray-600">{booth.Descrpition}</td>
+            <td className="px-6 py-4 text-gray-600">
+              <Link href={`/booths/${booth.Id}`}>
+                <div className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow transition">
+                  Booking
+                </div>
+              </Link>
+            </td>
           </tr>
         ))}
       </tbody>
