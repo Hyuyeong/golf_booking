@@ -1,21 +1,23 @@
-"use client";
-import { useEffect, useState } from "react";
+// "use client";
+// import { useEffect, useState } from "react";
 import Image from "next/image";
 import Spinner from "../_components/Spinner";
-function Boothlist() {
-  const [booths, setBooths] = useState([]);
-  const [loading, setLoading] = useState(true);
+import { query } from "../_lib/db";
+async function Boothlist() {
+  //   const [booths, setBooths] = useState([]);
+  //   const [loading, setLoading] = useState(true);
+  const booths = await query("SELECT * FROM Booths");
 
-  useEffect(() => {
-    fetch("/api/booths")
-      .then((res) => res.json())
-      .then((data) => {
-        setBooths(data);
-        setLoading(false);
-      });
-  }, []);
+  //   useEffect(() => {
+  //     fetch("/api/booths")
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setBooths(data);
+  //         setLoading(false);
+  //       });
+  //   }, []);
 
-  if (loading) return <Spinner />;
+  //   if (loading) return <Spinner />;
 
   return (
     <table className="min-w-full border-separate border-spacing-y-3">
