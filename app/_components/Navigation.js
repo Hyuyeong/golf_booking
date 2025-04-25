@@ -7,6 +7,7 @@ function Navigation() {
   const pathname = usePathname();
 
   const navItems = [
+    { href: "/login", label: "Login" },
     { href: "/booths", label: "Booths" },
     { href: "/account", label: "Account" },
     { href: "/about", label: "About" },

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import AccountSidebar from "../_components/AccountSidebar";
-
+import SessionWrapper from "../_components/SessionWrapper";
 function layout({ children }) {
   return (
     <div className="min-h-screen bg-white p-6">
@@ -9,7 +9,9 @@ function layout({ children }) {
       </h2>
       <div className="flex min-h-screen">
         <AccountSidebar />
-        <div className="w-4/5 p-6">{children}</div>
+        <SessionWrapper>
+          <div className="w-4/5 p-6">{children}</div>
+        </SessionWrapper>
       </div>
     </div>
   );
