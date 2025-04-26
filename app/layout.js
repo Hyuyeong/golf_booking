@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "./_components/Navigation";
+import SessionWrapper from "./_components/SessionWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,15 +36,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={geistMono.className}>
-        <header>
-          <Navigation />
-        </header>
+    <SessionWrapper>
+      <html lang="en">
+        <body className={geistMono.className}>
+          <header>
+            <Navigation />
+          </header>
 
-        <main>{children}</main>
-        {/* <footer>footer</footer> */}
-      </body>
-    </html>
+          <main>{children}</main>
+          {/* <footer>footer</footer> */}
+        </body>
+      </html>
+    </SessionWrapper>
   );
 }

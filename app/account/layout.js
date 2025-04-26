@@ -9,9 +9,9 @@ function layout({ children }) {
       </h2>
       <div className="flex min-h-screen">
         <AccountSidebar />
-        <SessionWrapper>
-          <div className="w-4/5 p-6">{children}</div>
-        </SessionWrapper>
+        {/* <SessionWrapper> */}
+        <div className="w-4/5 p-6">{children}</div>
+        {/* </SessionWrapper> */}
       </div>
     </div>
   );

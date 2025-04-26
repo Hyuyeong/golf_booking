@@ -14,11 +14,11 @@ function Dashboard() {
     return <div>Loading...</div>;
   }
 
-  // 로그인되지 않은 경우 리디렉션
-  if (!session) {
-    router.push("/login"); // 로그인 페이지로 리디렉션
-    return null;
-  }
+  //   // 로그인되지 않은 경우 리디렉션
+  //   if (!session) {
+  //     router.push("/login"); // 로그인 페이지로 리디렉션
+  //     return null;
+  //   }
 
   return (
     <div>

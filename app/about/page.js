@@ -1,3 +1,11 @@
+import Image from "next/image";
+import Image01 from "@/public/01.jpg";
+import Image02 from "@/public/02.jpg";
+import Image03 from "@/public/03.jpg";
+import Image04 from "@/public/04.jpg";
+import Image05 from "@/public/05.jpg";
+import Image06 from "@/public/06.jpg";
+
 export const metadata = {
   title: "About us",
 };
@@ -41,8 +49,8 @@ function page() {
             </p>
           </div>
           <div className="md:w-1/2">
-            <img
-              src="/images/driving-range.jpg"
+            <Image
+              src={Image01}
               alt="Driving Range"
               className="rounded-2xl shadow-lg"
             />
@@ -61,8 +69,8 @@ function page() {
             </p>
           </div>
           <div className="md:w-1/2">
-            <img
-              src="/images/virtual-course.jpg"
+            <Image
+              src={Image02}
               alt="Virtual Courses"
               className="rounded-2xl shadow-lg"
             />
@@ -80,8 +88,8 @@ function page() {
             </p>
           </div>
           <div className="md:w-1/2">
-            <img
-              src="/images/competition.jpg"
+            <Image
+              src={Image03}
               alt="Competitions"
               className="rounded-2xl shadow-lg"
             />
@@ -99,8 +107,8 @@ function page() {
             </p>
           </div>
           <div className="md:w-1/2">
-            <img
-              src="/images/academy.jpg"
+            <Image
+              src={Image06}
               alt="Golf Academy"
               className="rounded-2xl shadow-lg"
             />
@@ -119,8 +127,8 @@ function page() {
             </p>
           </div>
           <div className="md:w-1/2">
-            <img
-              src="/images/lounge.jpg"
+            <Image
+              src={Image05}
               alt="Lounge & Party"
               className="rounded-2xl shadow-lg"
             />

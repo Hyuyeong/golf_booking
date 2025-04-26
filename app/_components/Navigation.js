@@ -2,16 +2,22 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 function Navigation() {
   const pathname = usePathname();
+  const { data: session, status } = useSession();
+
+  // 세션 로딩 중일 때는 아무것도 렌더링하지 않음
+  if (status === "loading") return null;
 
   const navItems = [
-    { href: "/login", label: "Login" },
-    { href: "/booths", label: "Booths" },
-    { href: "/account", label: "Account" },
-    { href: "/about", label: "About" },
     { href: "/booking", label: "Booking" },
+    { href: "/booths", label: "Booths" },
+    { href: "/about", label: "About" },
+    ...(session
+      ? [{ href: "/account", label: "Account" }]
+      : [{ href: "/login", label: "Login" }]),
   ];
 
   return (

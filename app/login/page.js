@@ -73,7 +73,15 @@ export default function Login() {
             Login
           </button>
         </form>
-        <Link href="/register">Register</Link>
+        <div className="mt-4 text-sm text-left">
+          <p className="inline">Don’t have an account? </p>
+          <Link
+            href="/register"
+            className="text-green-600 hover:text-green-700 font-medium underline transition-colors"
+          >
+            Register
+          </Link>
+        </div>
       </div>
     </div>
   );

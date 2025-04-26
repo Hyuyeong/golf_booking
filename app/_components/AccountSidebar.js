@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 export default function AccountSidebar() {
   const pathname = usePathname();
@@ -10,6 +11,10 @@ export default function AccountSidebar() {
     { href: "/account/bookings", label: "Bookings" },
     { href: "/account/profile", label: "Profile" },
   ];
+
+  const handleLogout = () => {
+    signOut({ callbackUrl: "/login" }); // 로그아웃 후 이동할 페이지
+  };
 
   return (
     <div className="w-1/5 bg-green-50 p-6 space-y-4 text-lg font-medium">
@@ -30,6 +35,12 @@ export default function AccountSidebar() {
           </Link>
         );
       })}
+      <button
+        className="mt-70 block text-left w-full pt-4 cursor-pointer"
+        onClick={handleLogout}
+      >
+        Logout
+      </button>
     </div>
   );
 }
