@@ -34,7 +34,7 @@ export default async function ProfilePage() {
           defaultValue={user.UserName}
           className="border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500 px-2 py-1 mb-1 rounded outline-none"
         />
-        <SubmitButton />
+        <SubmitButton context={"Update"} status={"Updating"} />
       </form>
     </>
   );

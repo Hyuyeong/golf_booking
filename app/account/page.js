@@ -1,28 +1,22 @@
-"use client";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { query } from "@/app/_lib/db";
 
-function Dashboard() {
-  const { data: session, status } = useSession();
-  const router = useRouter();
-
-  console.log(session);
-
-  // 세션 상태가 로딩 중일 때
-  if (status === "loading") {
-    return <div>Loading...</div>;
+async function Dashboard() {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    return <div>You must be logged in</div>;
   }
 
-  //   // 로그인되지 않은 경우 리디렉션
-  //   if (!session) {
-  //     router.push("/login"); // 로그인 페이지로 리디렉션
-  //     return null;
-  //   }
+  // DB에서 최신 유저 정보 가져오기
+  const userId = session.user.id;
+  const result = await query("SELECT * FROM Users WHERE Id = ?", [userId]);
+  const user = result[0];
 
   return (
     <div>
-      <h1>Welcome, {session.user.username}!</h1>
+      <h1>Welcome, {user.UserName}!</h1>
       <p>Here is your dashboard content.</p>
       {/* 대시보드 내용 추가 */}
     </div>

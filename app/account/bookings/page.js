@@ -3,6 +3,8 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getUserBookings } from "@/app/_lib/db"; // 예약 정보 가져오기
+import SubmitButton from "@/app/_components/SubmitButton";
+import { deleteBooking } from "../actions/deleteBooking";
 
 // 서버 컴포넌트
 export default async function BookingsPage() {
@@ -46,7 +48,7 @@ export default async function BookingsPage() {
       {/* 예약 목록 */}
       <ul className="space-y-4">
         {futureBookings.length === 0 ? (
-          <p className="text-center text-xl text-gray-500">
+          <p className="text-left text-xl text-gray-500">
             You have no upcoming bookings.
           </p>
         ) : (
@@ -65,7 +67,7 @@ export default async function BookingsPage() {
             return (
               <li
                 key={booking.Id}
-                className="bg-white shadow-md rounded-lg p-4"
+                className="bg-white shadow-md rounded-lg p-4 max-w-md"
               >
                 <div className="flex flex-col space-y-2">
                   <p className="font-semibold">
@@ -92,6 +94,14 @@ export default async function BookingsPage() {
                     Amount:{" "}
                     <span className="text-gray-700">${booking.Amount}</span>
                   </p>
+                  <form action={deleteBooking}>
+                    <input type="hidden" name="bookingId" value={booking.Id} />
+                    <SubmitButton
+                      context={"Cancel"}
+                      status={"Cancelling"}
+                      color={"red"}
+                    />
+                  </form>
                 </div>
               </li>
             );
@@ -102,7 +112,7 @@ export default async function BookingsPage() {
       <h2 className="text-2xl font-semibold mt-8 mb-4">Past Bookings</h2>
       <ul className="space-y-4">
         {pastBookings.length === 0 ? (
-          <p className="text-center text-xl text-gray-500">
+          <p className="text-left text-xl text-gray-500">
             You have no past bookings.
           </p>
         ) : (
