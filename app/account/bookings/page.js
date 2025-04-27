@@ -33,17 +33,6 @@ export default async function BookingsPage() {
   return (
     <div className="container mx-auto px-4 py-6">
       <h1 className="text-3xl font-semibold text-left mb-6">Your Bookings</h1>
-
-      {/* 과거 예약/미래 예약 필터 버튼 */}
-      {/* <div className="flex justify-between items-center mb-6">
-        <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-          Show Past Bookings
-        </button>
-        <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-          Show Future Bookings
-        </button>
-      </div> */}
-
       {/* 예약 목록 */}
       <ul className="space-y-4">
         {futureBookings.length === 0 ? (
@@ -59,9 +48,11 @@ export default async function BookingsPage() {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
-                hour: "numeric",
               }
             );
+
+            const formattedHour = booking.StartTime.slice(0, 5);
+            const endHour = +booking.StartTime.slice(0, 2) + booking.Duration;
 
             return (
               <li
@@ -78,6 +69,13 @@ export default async function BookingsPage() {
                     <span className="text-gray-700">{formattedDate}</span>
                   </p>
                   <p className="font-semibold">
+                    Booked Time:{" "}
+                    <span className="text-gray-700">
+                      {formattedHour} - {endHour + ":00"} ({booking.Duration}
+                      {booking.Duration > 1 ? " Hrs" : " Hr"})
+                    </span>
+                  </p>
+                  <p className="font-semibold">
                     Status:{" "}
                     <span
                       className={`text-${booking.Status === "Confirmed" ? "green" : "red"}-500`}
@@ -90,17 +88,15 @@ export default async function BookingsPage() {
                     <span className="text-gray-700">{booking.BoothName}</span>
                   </p>
                   <p className="font-semibold">
+                    Play Type:{" "}
+                    <span className="text-gray-700">
+                      {booking.PlayTypeName}
+                    </span>
+                  </p>
+                  <p className="font-semibold">
                     Amount:{" "}
                     <span className="text-gray-700">${booking.Amount}</span>
                   </p>
-                  {/* <form action={deleteBooking}>
-                    <input type="hidden" name="bookingId" value={booking.Id} />
-                    <SubmitButton
-                      context={"Cancel"}
-                      status={"Cancelling"}
-                      color={"red"}
-                    />
-                  </form> */}
                   <DeleteButton bookingId={booking.Id} />
                 </div>
               </li>
@@ -128,6 +124,9 @@ export default async function BookingsPage() {
               }
             );
 
+            const formattedHour = booking.StartTime.slice(0, 5);
+            const endHour = +booking.StartTime.slice(0, 2) + booking.Duration;
+
             return (
               <li
                 key={booking.Id}
@@ -143,6 +142,13 @@ export default async function BookingsPage() {
                     <span className="text-gray-700">{formattedDate}</span>
                   </p>
                   <p className="font-semibold">
+                    Booked Time:{" "}
+                    <span className="text-gray-700">
+                      {formattedHour} - {endHour + ":00"} ({booking.Duration}
+                      {booking.Duration > 1 ? " Hrs" : " Hr"})
+                    </span>
+                  </p>
+                  <p className="font-semibold">
                     Status:{" "}
                     <span
                       className={`text-${booking.Status === "Confirmed" ? "green" : "red"}-500`}
@@ -153,6 +159,12 @@ export default async function BookingsPage() {
                   <p className="font-semibold">
                     Booked Booth:{" "}
                     <span className="text-gray-700">{booking.BoothName}</span>
+                  </p>
+                  <p className="font-semibold">
+                    Play Type:{" "}
+                    <span className="text-gray-700">
+                      {booking.PlayTypeName}
+                    </span>
                   </p>
                   <p className="font-semibold">
                     Amount:{" "}

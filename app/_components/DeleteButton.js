@@ -35,7 +35,7 @@ export default function DeleteBookingForm({ bookingId }) {
     <>
       <form action={handleDelete}>
         <input type="hidden" name="bookingId" value={bookingId} />
-        <SubmitButton context="Delete" status="Deleting" color="red" />
+        <SubmitButton context="Cancel" status="Cancelling" color="red" />
       </form>
 
       {/* Confirm Modal */}

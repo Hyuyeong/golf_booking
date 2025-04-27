@@ -44,35 +44,39 @@ async function Boothlist() {
         </tr>
       </thead>
       <tbody>
-        {booths.map((booth, index) => (
-          <tr
-            key={booth.Id}
-            className="bg-white shadow-sm hover:shadow-md transition-shadow duration-300 rounded-xl"
-          >
-            <td className="px-6 py-4 font-medium text-gray-600">{index + 1}</td>
-            <td className="px-6 py-4 w-40">
-              <div className="relative w-32 h-32">
-                <Image
-                  src={booth.ImageAddress}
-                  alt={booth.Name}
-                  fill
-                  className="rounded-lg object-cover shadow"
-                />
-              </div>
-            </td>
-            <td className="px-6 py-4 text-lg font-semibold text-gray-800">
-              {booth.Name}
-            </td>
-            <td className="px-6 py-4 text-gray-600">{booth.Descrpition}</td>
-            <td className="px-6 py-4 text-gray-600">
-              <Link href={`/booths/${booth.Id}`}>
-                <div className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow transition">
-                  Booking
+        {booths.map((booth, index) =>
+          booth.Id > 2 ? null : (
+            <tr
+              key={booth.Id}
+              className="bg-white shadow-sm hover:shadow-md transition-shadow duration-300 rounded-xl"
+            >
+              <td className="px-6 py-4 font-medium text-gray-600">
+                {index + 1}
+              </td>
+              <td className="px-6 py-4 w-40">
+                <div className="relative w-32 h-32">
+                  <Image
+                    src={booth.ImageAddress}
+                    alt={booth.Name}
+                    fill
+                    className="rounded-lg object-cover shadow"
+                  />
                 </div>
-              </Link>
-            </td>
-          </tr>
-        ))}
+              </td>
+              <td className="px-6 py-4 text-lg font-semibold text-gray-800">
+                {booth.Name}
+              </td>
+              <td className="px-6 py-4 text-gray-600">{booth.Descrpition}</td>
+              <td className="px-6 py-4 text-gray-600">
+                <Link href="/booking">
+                  <div className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow transition">
+                    Booking
+                  </div>
+                </Link>
+              </td>
+            </tr>
+          )
+        )}
       </tbody>
     </table>
   );
