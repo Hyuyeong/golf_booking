@@ -4,6 +4,8 @@ import { updateUser } from "../actions/updateUser";
 import { query } from "@/app/_lib/db";
 import SubmitButton from "@/app/_components/SubmitButton";
 
+import toast from "react-hot-toast";
+
 export default async function ProfilePage() {
   const session = await getServerSession(authOptions);
 
@@ -21,7 +23,6 @@ export default async function ProfilePage() {
       <h2 className="text-2xl font-bold text-green-700 mb-6">
         Update your profile
       </h2>
-
       <form action={updateUser} className="space-y-4 flex flex-col max-w-xs">
         <input type="hidden" name="userId" value={user.Id} />
 

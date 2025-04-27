@@ -9,5 +9,5 @@ export async function deleteBooking(formData) {
 
   await query("DELETE FROM Bookings WHERE Id = ?", [bookingId]);
 
-  revalidatePath("/account/booking");
+  revalidatePath("/account/bookings");
 }

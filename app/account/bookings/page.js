@@ -3,8 +3,7 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getUserBookings } from "@/app/_lib/db"; // 예약 정보 가져오기
-import SubmitButton from "@/app/_components/SubmitButton";
-import { deleteBooking } from "../actions/deleteBooking";
+import DeleteButton from "@/app/_components/DeleteButton";
 
 // 서버 컴포넌트
 export default async function BookingsPage() {
@@ -67,7 +66,7 @@ export default async function BookingsPage() {
             return (
               <li
                 key={booking.Id}
-                className="bg-white shadow-md rounded-lg p-4 max-w-md"
+                className="bg-white shadow-md rounded-lg p-4 max-w-lg"
               >
                 <div className="flex flex-col space-y-2">
                   <p className="font-semibold">
@@ -94,14 +93,15 @@ export default async function BookingsPage() {
                     Amount:{" "}
                     <span className="text-gray-700">${booking.Amount}</span>
                   </p>
-                  <form action={deleteBooking}>
+                  {/* <form action={deleteBooking}>
                     <input type="hidden" name="bookingId" value={booking.Id} />
                     <SubmitButton
                       context={"Cancel"}
                       status={"Cancelling"}
                       color={"red"}
                     />
-                  </form>
+                  </form> */}
+                  <DeleteButton bookingId={booking.Id} />
                 </div>
               </li>
             );
@@ -131,7 +131,7 @@ export default async function BookingsPage() {
             return (
               <li
                 key={booking.Id}
-                className="bg-gray-200 shadow-md rounded-lg p-4"
+                className="bg-gray-200 shadow-md rounded-lg p-4 max-w-lg"
               >
                 <div className="flex flex-col space-y-2">
                   <p className="font-semibold">
