@@ -18,7 +18,7 @@ export default function BookingForm({ booths, userId, playTypes }) {
   const [isHappyHour, setIsHappyHour] = useState(false);
   const [isPrivateRoom, setIsPrivateRoom] = useState(false);
   const [amount, setAmount] = useState(0); // 가격, 나중에 로직 추가
-  const [status] = useState("pending"); // 기본값 pending
+  const [status] = useState("Confirmed");
   const [todayDate, setTodayDate] = useState("");
   const [availableHours, setAvailableHours] = useState([1, 2, 3, 4]);
   const router = useRouter(); // useRouter 훅 사용

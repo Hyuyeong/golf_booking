@@ -17,7 +17,7 @@ async function Dashboard() {
   return (
     <div>
       <h1>Welcome, {user.UserName}!</h1>
-      <p>Here is your dashboard content.</p>
+      {/* <p>Here is your dashboard content.</p> */}
       {/* 대시보드 내용 추가 */}
     </div>
   );

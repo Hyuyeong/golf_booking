@@ -78,7 +78,7 @@ export default async function BookingsPage() {
                   <p className="font-semibold">
                     Status:{" "}
                     <span
-                      className={`text-${booking.Status === "Confirmed" ? "green" : "red"}-500`}
+                      className={`bg-${booking.Status === "Confirmed" ? "green" : "red"}-500 text-white p-1 rounded`}
                     >
                       {booking.Status}
                     </span>
@@ -150,11 +150,7 @@ export default async function BookingsPage() {
                   </p>
                   <p className="font-semibold">
                     Status:{" "}
-                    <span
-                      className={`text-${booking.Status === "Confirmed" ? "green" : "red"}-500`}
-                    >
-                      {booking.Status}
-                    </span>
+                    <span className="text-gray-700">{booking.Status}</span>
                   </p>
                   <p className="font-semibold">
                     Booked Booth:{" "}
