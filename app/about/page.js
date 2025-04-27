@@ -63,9 +63,9 @@ function page() {
             <h2 className="text-3xl font-bold mb-4">02. Virtual Courses</h2>
             <p className="text-lg leading-relaxed">
               Play on legendary courses from across the globe—all recreated in
-              vivid detail. Whether it's Pebble Beach or Sentosa, our virtual
-              simulations offer immersive realism and thrilling gameplay without
-              ever leaving the city.
+              vivid detail. Whether it&apos;s Pebble Beach or Sentosa, our
+              virtual simulations offer immersive realism and thrilling gameplay
+              without ever leaving the city.
             </p>
           </div>
           <div className="md:w-1/2">
@@ -121,9 +121,9 @@ function page() {
             <h2 className="text-3xl font-bold mb-4">05. Lounge & Events</h2>
             <p className="text-lg leading-relaxed">
               Unwind in our cozy lounge with snacks and drinks. Host a fun event
-              or team challenge using Hugolf’s simulators. Whether it's a casual
-              gathering or friendly competition, it’s the perfect place to relax
-              and connect.
+              or team challenge using Hugolf&apos;s simulators. Whether
+              it&apos;s a casual gathering or friendly competition, it&apos;s
+              the perfect place to relax and connect.
             </p>
           </div>
           <div className="md:w-1/2">
