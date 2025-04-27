@@ -1,9 +1,9 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { getBooths, getUserBookings, getPlayTypes } from "@/app/_lib/db"; // 예약 정보 가져오기
-
 import { query } from "@/app/_lib/db";
 import BookingForm from "../_components/BookingForm";
+import Toast from "../_components/Toast";
 
 export const metadata = {
   title: "Booking",
@@ -12,7 +12,12 @@ export const metadata = {
 async function page() {
   const session = await getServerSession(authOptions);
   if (!session) {
-    return <div>You must be logged in</div>;
+    return (
+      <Toast
+        status={"error"}
+        message={"You must be logged in to access this feature"}
+      />
+    );
   }
 
   const userId = session.user.id;

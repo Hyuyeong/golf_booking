@@ -29,21 +29,18 @@ function Navigation() {
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           return (
-            <>
-              <li>
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`block pb-1 border-b-2 transition-all duration-300 ${
-                    isActive
-                      ? "text-green-700 border-green-700 font-semibold"
-                      : "border-transparent hover:border-green-700 hover:text-green-700"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            </>
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className={`block pb-1 border-b-2 transition-all duration-300 ${
+                  isActive
+                    ? "text-green-700 border-green-700 font-semibold"
+                    : "border-transparent hover:border-green-700 hover:text-green-700"
+                }`}
+              >
+                {item.label}
+              </Link>
+            </li>
           );
         })}
       </ul>
