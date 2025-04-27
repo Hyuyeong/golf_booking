@@ -12,7 +12,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/auth/register`, {
+    const res = await fetch("/api/auth/register", {
       method: "POST",
       body: JSON.stringify({ email, username, password }),
       headers: {
