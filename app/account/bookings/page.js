@@ -78,7 +78,7 @@ export default async function BookingsPage() {
                   <p className="font-semibold">
                     Status:{" "}
                     <span
-                      className={`bg-${booking.Status === "Confirmed" ? "green" : "red"}-500 text-white p-1 rounded`}
+                      className={`bg-${booking.Status === "Confirmed" ? "green-600" : "red-500"} text-white p-1 rounded`}
                     >
                       {booking.Status}
                     </span>
