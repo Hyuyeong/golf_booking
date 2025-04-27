@@ -56,7 +56,7 @@ export default function BookingForm({ booths, userId, playTypes }) {
         .filter((booth) => booth.Id === Number(boothId))
         .map((booth) => booth.Name);
 
-      console.log(selectedBoothName);
+      //   console.log(selectedBoothName);
 
       if (selectedBoothName == "Private Room") {
         setIsPrivateRoom(true);
@@ -68,7 +68,7 @@ export default function BookingForm({ booths, userId, playTypes }) {
     }
   }, [boothId]);
 
-  console.log(Number(privateRoomPrice));
+  //   console.log(Number(privateRoomPrice));
   // 시간에 맞춰 금액 계산
   useEffect(() => {
     if (["09:00", "10:00", "11:00"].includes(time)) {

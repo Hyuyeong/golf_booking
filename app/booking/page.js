@@ -19,9 +19,9 @@ async function page() {
   const booths = await getBooths();
   const playTypes = await getPlayTypes();
 
-  console.log(playTypes);
+  // console.log(playTypes);
 
-  console.log(booths);
+  // console.log(booths);
   return (
     <div>
       <BookingForm booths={booths} userId={userId} playTypes={playTypes} />
