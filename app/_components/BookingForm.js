@@ -202,11 +202,13 @@ export default function BookingForm({ booths, userId, playTypes }) {
             <option disabled value="">
               Select a Booth
             </option>
-            {booths.map((booth) => (
-              <option key={booth.Id} value={booth.Id}>
-                {booth.Name}
-              </option>
-            ))}
+            {booths
+              .filter((booth) => booth.Id > 1)
+              .map((booth) => (
+                <option key={booth.Id} value={booth.Id}>
+                  {booth.Name}
+                </option>
+              ))}
           </select>
         </div>
 

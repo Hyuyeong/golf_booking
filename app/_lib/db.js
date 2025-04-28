@@ -54,3 +54,27 @@ export const getPlayTypes = async () => {
   const playTypes = await query(sql);
   return playTypes;
 };
+
+export const getAllBookings = async () => {
+  const sql = `
+      SELECT 
+      b.Id, 
+      b.Status, 
+      b.Amount, 
+      b.UserId, 
+      b.Date, 
+      b.BoothId, 
+      b.StartTime, 
+      b.Duration,
+      bo.Name AS BoothName,
+      pt.Name AS PlayTypeName
+  FROM 
+      Bookings b
+  JOIN 
+      Booths bo ON b.BoothId = bo.Id
+  JOIN 
+      PlayType pt ON b.PlayTypeId = pt.Id;
+    `;
+  const allBookings = await query(sql);
+  return allBookings;
+};

@@ -12,6 +12,8 @@ function Navigation() {
   if (status === "loading") return null;
 
   const navItems = [
+    { href: "/test1", label: "Test1" },
+    { href: "/test", label: "Test" },
     { href: "/booking", label: "Booking" },
     { href: "/booths", label: "Booths" },
     { href: "/about", label: "About" },
